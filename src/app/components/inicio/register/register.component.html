@@ -1,0 +1,49 @@
+<div class="layout">
+    <div class="row" style="width: 100%">
+        <div class="col-lg-6 offset-lg-3">
+
+            <div class="card text-center" style="padding: 20px">
+                <h3>Registro</h3>
+                <br>
+                <form [formGroup]="formulario" (ngSubmit)= registrarUsuario() >
+                    <div class="form-group" style="text-align: start">
+                        <input type="text" class="form-control" placeholder="Usuario" formControlName="usuario">
+
+                        <span class="text-danger" *ngIf="formulario.get('usuario').touched && formulario.get('usuario').hasError('required')">
+                        El usuario <b> es requerido</b>
+                        </span>
+                    </div>
+
+                    <div class="form-group" style="text-align: start">
+                        <input type="password" class="form-control" placeholder="Contraseña" formControlName="contraseña">
+                        
+                        <span class="text-danger" *ngIf="formulario.get('contraseña').touched && formulario.get('contraseña').hasError('required')">
+                        La contraseña <b> es requerida</b>
+                        </span>
+                        
+                        <span class="text-danger" *ngIf="formulario.get('contraseña').touched && formulario.get('contraseña').hasError('minlength')">
+                            La contraseña debe ser minimo de <b> 4 caracteres </b>
+                        </span>
+
+
+                    </div>
+
+                    <div class="form-group" style="text-align: start">
+                        <input type="password" class="form-control" placeholder="Repetir contraseña" formControlName="confirmPassword">
+
+                        <span class="text-danger" *ngIf="formulario.hasError('notSame')">
+                            Contraseñas <b> no coinciden</b>
+                            </span>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <button class="btn btn-secondary mr-2" routerLink="/inicio/login">Regresar</button>
+                        <button class="btn btn-primary" type="submit" [disabled]="!formulario.valid">Registrarse</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

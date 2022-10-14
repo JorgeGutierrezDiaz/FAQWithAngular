@@ -1,0 +1,17 @@
+h3{
+    font-family: 'Rowdies', cursive;
+}
+
+
+
+.layout{
+
+    background-image: url(../../../../assets/img/fondo.jpg);
+    background-position: center;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;   
+}
